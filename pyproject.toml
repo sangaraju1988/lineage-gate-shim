@@ -1,0 +1,23 @@
+[project]
+name = "lineage-gate-shim"
+version = "0.1.0"
+description = "Reverse proxy that enforces derivation-closed read scope (lineage gate) in front of a MemClaw-compatible memory server, for A/B measurement with ArgusFleet's derived-leakage experiment"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "Venkata Sangaraju" }]
+dependencies = ["httpx>=0.27"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+ignore = ["E501"]
